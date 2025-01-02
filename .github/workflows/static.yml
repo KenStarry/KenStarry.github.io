@@ -26,15 +26,6 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  steps:
-    - name: Clone repository
-      uses: actions/checkout@v4
-    - name: Set up Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        channel: stable
-    - run: flutter clean
-    - run: flutter build web
 
   # Single deploy job since we're just deploying
   deploy:
@@ -43,6 +34,15 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter clean
+      - run: flutter build web
+
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
