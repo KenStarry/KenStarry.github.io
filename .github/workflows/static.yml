@@ -99,9 +99,6 @@ jobs:
       # Build the Flutter web project
       - name: Build Web Release
         run: flutter build web
-
-      - name: Checkout
-        uses: actions/checkout@v4
           
       # Locate the directory containing build/web
       - name: Locate build/web directory
