@@ -102,6 +102,11 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+          
+      # Locate the directory containing build/web
+      - name: Locate build/web directory
+        id: find_web_dir
+        run: echo "WEB_DIR=$(find $GITHUB_WORKSPACE -type d -name 'web' -path '*/build/web')" >> $GITHUB_ENV
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -110,8 +115,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './build/web'
-          publish_dir: build/web
+          path: ${{ env.WEB_DIR }}
 
       - name: Deploy to GitHub Pages
         id: deployment
