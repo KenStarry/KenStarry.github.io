@@ -149,7 +149,7 @@ class AppTheme {
             surfaceTintColor:
                 backgroundColorDark),
         dividerColor: Colors.transparent,
-        fontFamily: "Helvetica",
+        fontFamily: "RobotoMono",
         textTheme: AppTextTheme.darkTextTheme());
   }
 }

@@ -15,6 +15,7 @@ class _DashboardPageState extends State<DashboardPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
+        child: Text('Talk is Cheap')
       ),
     );
   }
