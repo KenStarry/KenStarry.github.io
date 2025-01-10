@@ -1,45 +1,85 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:portfolio/core/util/extensions/widget_extensions.dart';
 import 'package:portfolio/features/home/presentation/model/appbar_link_model.dart';
 
-Widget appbarLink({required VoidCallback onTap, required String title}) =>
+Widget appbarLink(
+        {required VoidCallback onTap,
+        required AppbarLinkModel link,
+        required bool isActive}) =>
     Builder(builder: (context) {
       return Container(
         child: Row(
           spacing: 8,
-          children: [
-            Container(
-              width: 5,
-              height: 5,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Theme.of(context).colorScheme.primary),
-            ),
-            Text(title,
-                style: TextStyle(
-                  fontSize: Theme.of(context).textTheme.bodyMedium!.fontSize,
-                  fontWeight:
-                  Theme.of(context).textTheme.bodyMedium!.fontWeight,
-                  color: Theme.of(context).textTheme.bodyMedium!.color,
-                ))
-          ],
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: link.isSocial
+              ? [
+                  SvgPicture.asset(link.asset,
+                      width: 20,
+                      height: 20,
+                      colorFilter: ColorFilter.mode(
+                          Theme.of(context).textTheme.bodyMedium!.color!,
+                          BlendMode.srcIn)),
+                  Text(link.title,
+                      style: TextStyle(
+                        fontSize:
+                            Theme.of(context).textTheme.bodyMedium!.fontSize,
+                        fontWeight:
+                            Theme.of(context).textTheme.bodyMedium!.fontWeight,
+                        color: Theme.of(context).textTheme.bodyMedium!.color,
+                      )),
+                ]
+              : [
+                  Container(
+                    width: 5,
+                    height: 5,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: isActive
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).textTheme.bodyMedium!.color),
+                  ),
+                  Text(link.title,
+                      style: TextStyle(
+                        fontSize:
+                            Theme.of(context).textTheme.bodyMedium!.fontSize,
+                        fontWeight:
+                            Theme.of(context).textTheme.titleMedium!.fontWeight,
+                        color: isActive
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).textTheme.bodyMedium!.color,
+                      )),
+                  SvgPicture.asset(link.asset,
+                      width: 20,
+                      height: 20,
+                      colorFilter: ColorFilter.mode(
+                          isActive
+                              ? Theme.of(context).colorScheme.primary
+                              : Theme.of(context).textTheme.bodyMedium!.color!,
+                          BlendMode.srcIn))
+                ],
         ),
-      );
+      ).clickableMouse(onTap: onTap);
     });
 
-PreferredSizeWidget homeAppbar(BuildContext context) {
-  List<AppbarLinkModel> titles = [
-    AppbarLinkModel(title: 'Home', onTap: () {}),
-    AppbarLinkModel(title: 'Skills', onTap: () {}),
-    AppbarLinkModel(title: 'Works', onTap: () {}),
-  ];
-
+PreferredSizeWidget homeAppbar(BuildContext context,
+    {required String activeLink,
+    required List<AppbarLinkModel> links,
+    required List<AppbarLinkModel> socials,
+    required Function(String link) onLinkTap}) {
   return AppBar(
+    automaticallyImplyLeading: false,
+    centerTitle: true,
+    backgroundColor: Theme.of(context).colorScheme.onPrimary,
+    surfaceTintColor: Theme.of(context).colorScheme.onPrimary,
     title: Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
+        spacing: 32,
         children: [
           Text.rich(TextSpan(children: [
             TextSpan(
@@ -57,18 +97,27 @@ PreferredSizeWidget homeAppbar(BuildContext context) {
               child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 16,
-            children: titles
-                .map((model) =>
-                    appbarLink(onTap: model.onTap, title: model.title))
+            spacing: 24,
+            children: links
+                .map((model) => appbarLink(
+                    onTap: () => onLinkTap(model.title),
+                    link: model,
+                    isActive: model.title == activeLink))
                 .toList(),
-          ))
+          )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            spacing: 24,
+            children: socials
+                .map((model) => appbarLink(
+                    onTap: () => onLinkTap(model.title),
+                    link: model,
+                    isActive: model.title == activeLink))
+                .toList(),
+          )
         ],
       ),
     ),
-    automaticallyImplyLeading: false,
-    centerTitle: true,
-    backgroundColor: Theme.of(context).colorScheme.onSecondary,
-    surfaceTintColor: Theme.of(context).colorScheme.onSecondary,
   );
 }

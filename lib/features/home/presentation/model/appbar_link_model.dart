@@ -2,7 +2,8 @@ import 'dart:ui';
 
 class AppbarLinkModel {
   final String title;
-  final VoidCallback onTap;
+  final bool isSocial;
+  final String asset;
 
-  AppbarLinkModel({required this.title, required this.onTap});
+  AppbarLinkModel({required this.title, this.isSocial = false, required this.asset});
 }
