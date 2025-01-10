@@ -1,7 +1,8 @@
 import 'package:go_router/go_router.dart';
-import 'package:portfolio/features/dashboard/presentation/pages/dashboard_page.dart';
+
+import '../../../features/home/presentation/pages/home_page.dart';
 
 final dashboardRoute = GoRoute(
-    path: '/dashboard',
-    name: 'dashboard',
-    builder: (context, state) => DashboardPage());
+    path: '/home',
+    name: 'home',
+    builder: (context, state) => HomePage());
