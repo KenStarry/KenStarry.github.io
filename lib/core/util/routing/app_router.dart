@@ -5,4 +5,4 @@ import 'package:portfolio/core/util/routing/dashboard_routes.dart';
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 
 final GoRouter appRouter =
-    GoRouter(initialLocation: '/dashboard', routes: [dashboardRoute]);
+    GoRouter(initialLocation: '/home', routes: [dashboardRoute]);
