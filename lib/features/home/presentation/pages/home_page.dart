@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/features/bio/presentation/bio_section.dart';
 import 'package:portfolio/features/home/presentation/components/home_appbar.dart';
 
 import '../model/appbar_link_model.dart';
@@ -60,7 +61,12 @@ class _HomePageState extends State<HomePage> {
       body: Container(
           width: double.infinity,
           height: double.infinity,
-          child: Text('Talk is Cheap')),
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              BioSection()
+            ],
+          )),
     );
   }
 }

@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/core/util/extensions/widget_extensions.dart';
 import 'package:portfolio/features/home/presentation/model/appbar_link_model.dart';
 
+import '../../../../theme/colors.dart';
+
 Widget appbarLink(
         {required VoidCallback onTap,
         required AppbarLinkModel link,
@@ -90,7 +92,7 @@ PreferredSizeWidget homeAppbar(BuildContext context,
                   fontSize: Theme.of(context).textTheme.titleSmall!.fontSize,
                   fontWeight:
                       Theme.of(context).textTheme.bodyMedium!.fontWeight,
-                  color: Theme.of(context).textTheme.titleSmall!.color,
+                  color: whiteColor2,
                 )),
           ])),
           Expanded(
