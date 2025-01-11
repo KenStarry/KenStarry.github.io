@@ -92,7 +92,7 @@ PreferredSizeWidget homeAppbar(BuildContext context,
                   fontSize: Theme.of(context).textTheme.titleSmall!.fontSize,
                   fontWeight:
                       Theme.of(context).textTheme.bodyMedium!.fontWeight,
-                  color: whiteColor2,
+                  color: whiteColor2.withValues(alpha: 0.7),
                 )),
           ])),
           Expanded(

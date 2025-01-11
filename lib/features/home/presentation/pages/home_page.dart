@@ -61,6 +61,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
           width: double.infinity,
           height: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 136),
           child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
             slivers: [
