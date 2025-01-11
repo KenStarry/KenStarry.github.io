@@ -77,7 +77,7 @@ PreferredSizeWidget homeAppbar(BuildContext context,
     surfaceTintColor: Theme.of(context).colorScheme.onPrimary,
     title: Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 32),
+      padding: const EdgeInsets.symmetric(horizontal: 120),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,7 +99,7 @@ PreferredSizeWidget homeAppbar(BuildContext context,
               child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 24,
+            spacing: 40,
             children: links
                 .map((model) => appbarLink(
                     onTap: () => onLinkTap(model.title),
@@ -110,7 +110,7 @@ PreferredSizeWidget homeAppbar(BuildContext context,
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 24,
+            spacing: 40,
             children: socials
                 .map((model) => appbarLink(
                     onTap: () => onLinkTap(model.title),
