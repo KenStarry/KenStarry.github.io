@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/core/util/extensions/widget_extensions.dart';
 import 'package:portfolio/features/home/presentation/model/appbar_link_model.dart';
 
+import '../../../../theme/colors.dart';
+
 Widget appbarLink(
         {required VoidCallback onTap,
         required AppbarLinkModel link,
@@ -75,7 +77,7 @@ PreferredSizeWidget homeAppbar(BuildContext context,
     surfaceTintColor: Theme.of(context).colorScheme.onPrimary,
     title: Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 32),
+      padding: const EdgeInsets.symmetric(horizontal: 120),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -90,14 +92,14 @@ PreferredSizeWidget homeAppbar(BuildContext context,
                   fontSize: Theme.of(context).textTheme.titleSmall!.fontSize,
                   fontWeight:
                       Theme.of(context).textTheme.bodyMedium!.fontWeight,
-                  color: Theme.of(context).textTheme.titleSmall!.color,
+                  color: whiteColor2.withValues(alpha: 0.7),
                 )),
           ])),
           Expanded(
               child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 24,
+            spacing: 40,
             children: links
                 .map((model) => appbarLink(
                     onTap: () => onLinkTap(model.title),
@@ -108,7 +110,7 @@ PreferredSizeWidget homeAppbar(BuildContext context,
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 24,
+            spacing: 40,
             children: socials
                 .map((model) => appbarLink(
                     onTap: () => onLinkTap(model.title),
