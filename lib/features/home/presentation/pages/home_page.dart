@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
       AppbarLinkModel(title: 'Home', asset: 'assets/images/home.svg'),
       AppbarLinkModel(title: 'Skills', asset: 'assets/images/skills.svg'),
       AppbarLinkModel(title: 'Works', asset: 'assets/images/works.svg'),
+      AppbarLinkModel(title: 'Education', asset: 'assets/images/education.svg'),
     ];
 
     _socials = [
