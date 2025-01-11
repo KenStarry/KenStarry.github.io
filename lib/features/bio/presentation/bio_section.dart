@@ -17,26 +17,43 @@ class BioSection extends StatefulWidget {
 class _BioSectionState extends State<BioSection> {
   @override
   Widget build(BuildContext context) {
-    return MultiSliver(children: [
-      SliverToBoxAdapter(
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(vertical: 100),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            spacing: 100,
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: 100),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        spacing: 100,
+        children: [
+          Row(
             children: [
-              Row(
-                children: [
-                  Expanded(child: BioContent()),
-                  Expanded(child: BioImage())
-                ],
-              ),
+              Expanded(child: BioContent()),
+              Expanded(child: BioImage())
             ],
           ),
-        ),
-      )
-    ]);
+        ],
+      ),
+    );
+    // return MultiSliver(children: [
+    //   SliverToBoxAdapter(
+    //     child: Container(
+    //       width: double.infinity,
+    //       padding: const EdgeInsets.symmetric(vertical: 100),
+    //       child: Column(
+    //         crossAxisAlignment: CrossAxisAlignment.start,
+    //         mainAxisAlignment: MainAxisAlignment.center,
+    //         spacing: 100,
+    //         children: [
+    //           Row(
+    //             children: [
+    //               Expanded(child: BioContent()),
+    //               Expanded(child: BioImage())
+    //             ],
+    //           ),
+    //         ],
+    //       ),
+    //     ),
+    //   )
+    // ]);
   }
 }

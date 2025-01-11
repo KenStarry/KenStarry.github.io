@@ -27,6 +27,8 @@ dependencies:
   badges: ^3.1.2
   sliver_tools: ^0.2.12
   flutter_animate: ^4.5.2
+  carousel_slider: ^5.0.0
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/di/locator.dart';
 import 'package:portfolio/theme/app_theme.dart';
 
 import 'core/util/routing/app_router.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await setupLocator();
+
   runApp(const MyApp());
 }
 
@@ -24,4 +29,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
