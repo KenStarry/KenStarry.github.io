@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/theme/colors.dart';
@@ -27,7 +29,7 @@ class _BioSectionState extends State<BioSection> {
                 children: [
                   Expanded(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 100,
                     children: [
                       Padding(
@@ -53,9 +55,16 @@ class _BioSectionState extends State<BioSection> {
                                         .fontWeight,
                                     color: blackColor,
                                   )),
-                            ),
+                            )
+                                .animate(autoPlay: true)
+                                .fadeIn(
+                                    delay: Duration(milliseconds: 500),
+                                    duration: Duration(milliseconds: 300))
+                                .moveX(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease),
                             Text(
-                              "Code is my craft,\nsolving problems is my art.",
+                              "Turning ‘what if?’\ninto ‘it works!’",
                               style: TextStyle(
                                 fontSize: 32,
                                 fontWeight: Theme.of(context)
@@ -68,9 +77,16 @@ class _BioSectionState extends State<BioSection> {
                                     .color,
                               ),
                               textAlign: TextAlign.start,
-                            ),
+                            )
+                                .animate(autoPlay: true)
+                                .fadeIn(
+                                    delay: Duration(milliseconds: 700),
+                                    duration: Duration(milliseconds: 300))
+                                .moveX(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease),
                             Text(
-                              "I write code that even my future self understands… most of the time.😅",
+                              "(well...usually on the second try).",
                               style: TextStyle(
                                 fontSize: Theme.of(context)
                                     .textTheme
@@ -83,19 +99,35 @@ class _BioSectionState extends State<BioSection> {
                                 color: whiteColor2.withValues(alpha: 0.7),
                               ),
                               textAlign: TextAlign.start,
-                            ),
+                            )
+                                .animate(autoPlay: true)
+                                .fadeIn(
+                                    delay: Duration(milliseconds: 900),
+                                    duration: Duration(milliseconds: 300))
+                                .moveX(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease),
                             TextButton(
-                                onPressed: () {},
-                                style: TextButton.styleFrom(
-                                    padding: EdgeInsets.zero),
-                                child: Text(
-                                  "LET'S CHAT",
-                                  style: TextStyle(
-                                      decoration: TextDecoration.underline,
-                                      decorationColor: Theme.of(context)
-                                          .colorScheme
-                                          .primary),
-                                ))
+                                    onPressed: () {},
+                                    style: TextButton.styleFrom(
+                                        padding: EdgeInsets.zero),
+                                    child: Text(
+                                      "LET'S CHAT",
+                                      style: TextStyle(
+                                          decoration: TextDecoration.underline,
+                                          decorationColor: Theme.of(context)
+                                              .colorScheme
+                                              .primary),
+                                    ))
+                                .animate(autoPlay: true)
+                                .fadeIn(
+                                    delay: Duration(milliseconds: 1100),
+                                    duration: Duration(milliseconds: 300))
+                                .moveY(
+                                    begin: -30,
+                                    end: 0,
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease),
                           ],
                         ),
                       ),
@@ -106,59 +138,113 @@ class _BioSectionState extends State<BioSection> {
                           Row(
                             spacing: 16,
                             children: [
-                              Text("4+", style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: Theme.of(context).textTheme.titleLarge!.fontWeight,
-                                color: whiteColor,
-                              )),
+                              Text("4+",
+                                  style: TextStyle(
+                                    fontSize: 40,
+                                    fontWeight: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge!
+                                        .fontWeight,
+                                    color: whiteColor,
+                                  )),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 spacing: 4,
                                 children: [
-                                  Text("YEARS", style: TextStyle(
-                                    fontSize: Theme.of(context).textTheme.bodyMedium!.fontSize,
-                                    fontWeight: Theme.of(context).textTheme.bodyMedium!.fontWeight,
-                                    color: whiteColor2.withValues(alpha: 0.7),
-                                  )),
-
-                                  Text("EXPERIENCE", style: TextStyle(
-                                    fontSize: Theme.of(context).textTheme.bodyMedium!.fontSize,
-                                    fontWeight: Theme.of(context).textTheme.bodyMedium!.fontWeight,
-                                    color: whiteColor2.withValues(alpha: 0.7),
-                                  )),
+                                  Text("YEARS",
+                                      style: TextStyle(
+                                        fontSize: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .fontSize,
+                                        fontWeight: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .fontWeight,
+                                        color:
+                                            whiteColor2.withValues(alpha: 0.7),
+                                      )),
+                                  Text("EXPERIENCE",
+                                      style: TextStyle(
+                                        fontSize: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .fontSize,
+                                        fontWeight: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .fontWeight,
+                                        color:
+                                            whiteColor2.withValues(alpha: 0.7),
+                                      )),
                                 ],
                               )
                             ],
-                          ),
+                          ).animate(autoPlay: true)
+                              .fadeIn(
+                              delay: Duration(milliseconds: 1300),
+                              duration: Duration(milliseconds: 300))
+                              .moveY(
+                              begin: 30,
+                              end: 0,
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.ease),
                           Row(
                             spacing: 16,
                             children: [
-                              Text("12", style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: Theme.of(context).textTheme.titleLarge!.fontWeight,
-                                color: whiteColor,
-                              )),
+                              Text("12",
+                                  style: TextStyle(
+                                    fontSize: 40,
+                                    fontWeight: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge!
+                                        .fontWeight,
+                                    color: whiteColor,
+                                  )),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 spacing: 4,
                                 children: [
-                                  Text("PROJECTS", style: TextStyle(
-                                    fontSize: Theme.of(context).textTheme.bodyMedium!.fontSize,
-                                    fontWeight: Theme.of(context).textTheme.bodyMedium!.fontWeight,
-                                    color: whiteColor2.withValues(alpha: 0.7),
-                                  )),
-
-                                  Text("BUILT & DEPLOYED", style: TextStyle(
-                                    fontSize: Theme.of(context).textTheme.bodyMedium!.fontSize,
-                                    fontWeight: Theme.of(context).textTheme.bodyMedium!.fontWeight,
-                                    color: whiteColor2.withValues(alpha: 0.7),
-                                  )),
+                                  Text("PROJECTS",
+                                      style: TextStyle(
+                                        fontSize: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .fontSize,
+                                        fontWeight: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .fontWeight,
+                                        color:
+                                            whiteColor2.withValues(alpha: 0.7),
+                                      )),
+                                  Text("BUILT & DEPLOYED",
+                                      style: TextStyle(
+                                        fontSize: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .fontSize,
+                                        fontWeight: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .fontWeight,
+                                        color:
+                                            whiteColor2.withValues(alpha: 0.7),
+                                      )),
                                 ],
                               )
                             ],
-                          )
+                          ).animate(autoPlay: true)
+                              .fadeIn(
+                              delay: Duration(milliseconds: 1500),
+                              duration: Duration(milliseconds: 300))
+                              .moveY(
+                              begin: 30,
+                              end: 0,
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.ease),
                         ],
                       )
                     ],
@@ -184,51 +270,49 @@ class _BioSectionState extends State<BioSection> {
                         ),
                       ),
 
-                      Container(
+                      SizedBox(
                           width: double.infinity,
-                          height: 500,
+                          height: 600,
                           child: Stack(
                             children: [
                               Image.asset('assets/images/me.png',
                                   width: double.infinity,
                                   height: double.infinity,
-                                  fit: BoxFit.contain),
-                              Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                          colors: [
-                                        Theme.of(context)
-                                            .colorScheme
-                                            .onPrimary
-                                            .withValues(alpha: 0),
-                                        Theme.of(context)
-                                            .colorScheme
-                                            .onPrimary
-                                            .withValues(alpha: 0.2),
-                                        Theme.of(context)
-                                            .colorScheme
-                                            .onPrimary
-                                            .withValues(alpha: 0.4),
-                                        Theme.of(context)
-                                            .colorScheme
-                                            .onPrimary
-                                            .withValues(alpha: 0.6),
-                                        Theme.of(context)
-                                            .colorScheme
-                                            .onPrimary
-                                            .withValues(alpha: 0.8),
-                                        Theme.of(context)
-                                            .colorScheme
-                                            .onPrimary,
-                                      ])),
-                                ),
-                              )
+                                  fit: BoxFit.cover),
+                              // Align(
+                              //   alignment: Alignment.bottomCenter,
+                              //   child: Container(
+                              //     width: double.infinity,
+                              //     height: 100,
+                              //     decoration: BoxDecoration(
+                              //         gradient: LinearGradient(
+                              //             begin: Alignment.topCenter,
+                              //             end: Alignment.bottomCenter,
+                              //             colors: [
+                              //           Theme.of(context)
+                              //               .colorScheme
+                              //               .onPrimary
+                              //               .withValues(alpha: 0),
+                              //           Theme.of(context)
+                              //               .colorScheme
+                              //               .onPrimary
+                              //               .withValues(alpha: 0.2),
+                              //           Theme.of(context)
+                              //               .colorScheme
+                              //               .onPrimary
+                              //               .withValues(alpha: 0.4),
+                              //           Theme.of(context)
+                              //               .colorScheme
+                              //               .onPrimary
+                              //               .withValues(alpha: 0.6),
+                              //           Theme.of(context)
+                              //               .colorScheme
+                              //               .onPrimary
+                              //               .withValues(alpha: 0.8),
+                              //           Theme.of(context).colorScheme.onPrimary,
+                              //         ])),
+                              //   ),
+                              // )
                             ],
                           )),
 
@@ -238,18 +322,24 @@ class _BioSectionState extends State<BioSection> {
                         top: 300,
                         bottom: 0,
                         child: UnconstrainedBox(
-                          child: Container(
-                            width: 120,
-                            height: 120,
-                            padding: const EdgeInsets.all(24),
-                            decoration: BoxDecoration(
-                                color:
-                                    Theme.of(context).colorScheme.onSecondary,
-                                shape: BoxShape.circle),
-                            child: Image.asset('assets/images/flutter.png',
-                                width: double.infinity,
-                                height: double.infinity,
-                                fit: BoxFit.contain),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(500),
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                              child: Container(
+                                width: 120,
+                                height: 120,
+                                padding: const EdgeInsets.all(24),
+                                decoration: BoxDecoration(
+                                    color:
+                                        Theme.of(context).colorScheme.onSecondary.withValues(alpha: 0.3),
+                                    shape: BoxShape.circle),
+                                child: Image.asset('assets/images/flutter.png',
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    fit: BoxFit.contain),
+                              ),
+                            ),
                           ),
                         )
                             .animate(
@@ -267,18 +357,24 @@ class _BioSectionState extends State<BioSection> {
                         top: 150,
                         bottom: 0,
                         child: UnconstrainedBox(
-                          child: Container(
-                            width: 80,
-                            height: 80,
-                            padding: const EdgeInsets.all(24),
-                            decoration: BoxDecoration(
-                                color:
-                                    Theme.of(context).colorScheme.onSecondary,
-                                shape: BoxShape.circle),
-                            child: Image.asset('assets/images/kotlin.png',
-                                width: double.infinity,
-                                height: double.infinity,
-                                fit: BoxFit.contain),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(500),
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                              child: Container(
+                                width: 80,
+                                height: 80,
+                                padding: const EdgeInsets.all(24),
+                                decoration: BoxDecoration(
+                                    color:
+                                    Theme.of(context).colorScheme.onSecondary.withValues(alpha: 0.3),
+                                    shape: BoxShape.circle),
+                                child: Image.asset('assets/images/kotlin.png',
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    fit: BoxFit.contain),
+                              ),
+                            ),
                           ),
                         )
                             .animate(
